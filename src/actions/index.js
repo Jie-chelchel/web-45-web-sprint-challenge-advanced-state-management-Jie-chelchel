@@ -8,6 +8,7 @@ import axios from "axios";
 export const FETCH_REQUEST = "FETCH_REQUEST";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAILURE = "FETCH_FAILURE";
+export const ADD_SMURF = "ADD_SMURF";
 
 export const fetchRequest = () => {
   return {
@@ -26,6 +27,13 @@ export const fetchFailure = (err) => {
   return {
     type: FETCH_FAILURE,
     payload: err,
+  };
+};
+
+export const addSmurf = (input) => {
+  return {
+    type: ADD_SMURF,
+    payload: input,
   };
 };
 

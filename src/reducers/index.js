@@ -1,8 +1,8 @@
 import {
-  fetchSuccess,
   FETCH_FAILURE,
   FETCH_REQUEST,
   FETCH_SUCCESS,
+  ADD_SMURF,
 } from "../actions";
 
 export const initialState = {
@@ -30,6 +30,12 @@ const reducer = (state = initialState, action) => {
     }
     case FETCH_FAILURE: {
       return { isLoading: false, smurfs: action.payload, error: "" };
+    }
+    case ADD_SMURF: {
+      return {
+        ...state,
+        smurfs: [...state.smurfs, action.payload],
+      };
     }
     default:
       return state;
