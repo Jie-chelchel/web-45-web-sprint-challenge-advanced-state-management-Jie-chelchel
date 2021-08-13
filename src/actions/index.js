@@ -39,6 +39,7 @@ export const addSmurf = (name, position, nickname, description) => {
       position: position,
       nickname: nickname,
       description: description,
+      id: Date.now(),
     },
   };
 };

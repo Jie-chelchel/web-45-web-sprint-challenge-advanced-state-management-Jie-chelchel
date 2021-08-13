@@ -28,6 +28,8 @@ const AddForm = (props) => {
       state.nickname,
       state.description
     );
+    //clear input after submit
+    setState({ name: "", position: "", nickname: "", description: "" });
   };
 
   const errorMessage = props.errorMessage;
@@ -76,13 +78,13 @@ const AddForm = (props) => {
             id="description"
           />
         </div>
-        {errorMessage && (
+        {props.errorMessage && (
           <div
             data-testid="errorAlert"
             className="alert alert-danger"
             role="alert"
           >
-            Error: {errorMessage}
+            Error: {props.errorMessage}
           </div>
         )}
         <button>Submit Smurf</button>
@@ -92,11 +94,12 @@ const AddForm = (props) => {
 };
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     errorMessage: state.error,
   };
 };
-export default connect(null, { addSmurf, setError })(AddForm);
+export default connect(mapStateToProps, { addSmurf, setError })(AddForm);
 
 //Task List:
 //1. Connect the errorMessage, setError and addSmurf actions to the AddForm component.
