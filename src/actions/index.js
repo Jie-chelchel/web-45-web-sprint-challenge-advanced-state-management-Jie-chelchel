@@ -9,6 +9,7 @@ export const FETCH_REQUEST = "FETCH_REQUEST";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAILURE = "FETCH_FAILURE";
 export const ADD_SMURF = "ADD_SMURF";
+export const SET_ERROR = "SET_ERROR";
 
 export const fetchRequest = () => {
   return {
@@ -30,10 +31,17 @@ export const fetchFailure = (err) => {
   };
 };
 
-export const addSmurf = (input) => {
+export const addSmurf = (name, position, nickname) => {
   return {
     type: ADD_SMURF,
-    payload: input,
+    payload: { name: name, position: position, nickname: nickname },
+  };
+};
+
+export const setError = (err) => {
+  return {
+    type: SET_ERROR,
+    payload: err,
   };
 };
 
