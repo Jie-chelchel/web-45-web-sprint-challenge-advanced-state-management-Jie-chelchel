@@ -20,7 +20,7 @@ const AddForm = (props) => {
     e.preventDefault();
     if (state.name === "" || state.position === "" || state.nickname === "") {
       //   errorMessage = "Name, position and nickname fields are required.";
-      props.setError("Name, position and nickname fields are required.");
+      return props.setError("Name, position and nickname fields are required.");
     }
     props.addSmurf(
       state.name,
@@ -31,6 +31,11 @@ const AddForm = (props) => {
     //if there is no error, clear input after submit. Otherwise,keep input in form
     props.errorMessage &&
       setState({ name: "", position: "", nickname: "", description: "" });
+
+    if (state.name !== "" && state.position !== "" && state.nickname !== "") {
+      //   errorMessage = "Name, position and nickname fields are required.";
+      props.setError("");
+    }
   };
 
   //Don't need this any more.
@@ -96,7 +101,7 @@ const AddForm = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  // console.log(state);
   return {
     errorMessage: state.error,
   };
