@@ -6,7 +6,7 @@ import {
 } from "../actions";
 
 export const initialState = {
-  loading: false,
+  isLoading: false,
   smurfs: [
     // {
     //   id: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
@@ -23,13 +23,13 @@ export const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_REQUEST: {
-      return { ...state, loading: true };
+      return { ...state, isLoading: true };
     }
     case FETCH_SUCCESS: {
-      return { loading: false, smurfs: action.payload, error: "" };
+      return { isLoading: false, smurfs: action.payload, error: "" };
     }
     case FETCH_FAILURE: {
-      return { loading: false, smurfs: action.payload, error: "" };
+      return { isLoading: false, smurfs: action.payload, error: "" };
     }
     default:
       return state;
