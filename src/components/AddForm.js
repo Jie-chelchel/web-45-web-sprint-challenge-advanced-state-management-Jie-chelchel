@@ -22,7 +22,12 @@ const AddForm = (props) => {
       //   errorMessage = "Name, position and nickname fields are required.";
       props.setError("Name, position and nickname fields are required.");
     }
-    props.addSmurf(state.name, state.position, state.nickname);
+    props.addSmurf(
+      state.name,
+      state.position,
+      state.nickname,
+      state.description
+    );
   };
 
   const errorMessage = props.errorMessage;

@@ -31,10 +31,15 @@ export const fetchFailure = (err) => {
   };
 };
 
-export const addSmurf = (name, position, nickname) => {
+export const addSmurf = (name, position, nickname, description) => {
   return {
     type: ADD_SMURF,
-    payload: { name: name, position: position, nickname: nickname },
+    payload: {
+      name: name,
+      position: position,
+      nickname: nickname,
+      description: description,
+    },
   };
 };
 
