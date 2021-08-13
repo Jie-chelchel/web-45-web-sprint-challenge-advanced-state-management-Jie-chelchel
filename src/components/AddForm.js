@@ -28,11 +28,13 @@ const AddForm = (props) => {
       state.nickname,
       state.description
     );
-    //clear input after submit
-    setState({ name: "", position: "", nickname: "", description: "" });
+    //if there is no error, clear input after submit. Otherwise,keep input in form
+    props.errorMessage &&
+      setState({ name: "", position: "", nickname: "", description: "" });
   };
 
-  const errorMessage = props.errorMessage;
+  //Don't need this any more.
+  // const errorMessage = "";
 
   return (
     <section>
