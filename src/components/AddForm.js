@@ -29,12 +29,12 @@ const AddForm = (props) => {
       state.description
     );
     //if there is no error, clear input after submit. Otherwise,keep input in form
-    props.errorMessage &&
+    !props.errorMessage &&
       setState({ name: "", position: "", nickname: "", description: "" });
-
+    //if there was an error, then fill the blank, check if statement,  clear error, set to input to be empty
     if (state.name !== "" && state.position !== "" && state.nickname !== "") {
-      //   errorMessage = "Name, position and nickname fields are required.";
       props.setError("");
+      setState({ name: "", position: "", nickname: "", description: "" });
     }
   };
 
